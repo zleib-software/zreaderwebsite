@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ZReader — Leitor de mangás grátis para Windows e Android</title>
+<meta name="description" content="Baixe o ZReader: leitor de mangás open-source, local-first e sem rastreadores, integrado ao MangaDex. Instalador para Windows e APK para Android.">
+<meta name="theme-color" content="#0d0d0f">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://SEU-DOMINIO.vercel.app/">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="ZReader">
+<meta property="og:title" content="ZReader — Leitor de mangás grátis para Windows e Android">
+<meta property="og:description" content="Baixe o ZReader: leitor de mangás open-source, local-first e sem rastreadores, integrado ao MangaDex. Instalador para Windows e APK para Android.">
+<meta property="og:url" content="https://SEU-DOMINIO.vercel.app/">
+<meta property="og:image" content="https://SEU-DOMINIO.vercel.app/assets/img/og.svg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Prévia visual do ZReader: leitor de mangás grátis para Windows e Android">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ZReader — Leitor de mangás grátis para Windows e Android">
+<meta name="twitter:description" content="Baixe o ZReader: leitor de mangás open-source, local-first e sem rastreadores, integrado ao MangaDex.">
+<meta name="twitter:image" content="https://SEU-DOMINIO.vercel.app/assets/img/og.svg">
+
+<!-- Favicon -->
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+<!-- Preload de Fontes Self-Hosted (pesos 400 e 700) -->
+<link rel="preload" href="assets/fonts/poppins-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+<!-- Folha de Estilos e Módulos JavaScript -->
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="modulepreload" href="assets/js/main.js">
+<link rel="modulepreload" href="assets/js/platform.js">
+<link rel="modulepreload" href="assets/js/release.js">
+<link rel="modulepreload" href="assets/js/mock.js">
+<link rel="modulepreload" href="assets/js/ui.js">
+<script type="module" src="assets/js/main.js"></script>
+
+<!-- JSON-LD Estruturado -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "ZReader",
+  "applicationCategory": "EntertainmentApplication",
+  "operatingSystem": "Windows, Android",
+  "description": "Leitor de mangás desktop e mobile moderno, local-first e seguro, que consome a API oficial v5 do MangaDex.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "BRL"
+  },
+  "license": "https://opensource.org/licenses/MIT",
+  "downloadUrl": "https://github.com/zleib-software/ZReader/releases/latest",
+  "codeRepository": "https://github.com/zleib-software/ZReader"
+}
+</script>
+</head>
+<body>
+<div id="top"></div>
+<a class="skip" href="#main">Pular para o conteúdo</a>
+
+<!-- Faixa para navegadores embutidos (WebViews) -->
+<aside class="strip" id="in-app-banner" hidden>
+  <svg class="i" aria-hidden="true"><use href="#i-info"/></svg>
+  <span>Para baixar, abra esta página no Chrome ou no Safari.</span>
+  <button type="button" class="btn-copy" data-copy-link>Copiar link</button>
+  <button type="button" class="btn-copy" data-dismiss-banner aria-label="Fechar aviso">✕</button>
+</aside>
+
+<header class="hdr"><div class="wrap">
+  <a class="logo" href="#top" aria-label="ZReader, início">
+    <span class="logo__mark"><svg class="i" aria-hidden="true"><use href="#i-book"/></svg></span>
+    <span><b>Z</b>READER</span>
+  </a>
+  <nav class="nav" aria-label="Principal">
+    <a href="#downloads">Downloads</a>
+    <a href="#como-instalar">Como instalar</a>
+    <a href="#recursos">Recursos</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+  <div class="hdr__r">
+    <a class="iconbtn" href="https://github.com/zleib-software/ZReader" target="_blank" rel="noopener noreferrer" aria-label="Código-fonte no GitHub">
+      <svg class="i" aria-hidden="true"><use href="#i-gh"/></svg>
+    </a>
+    <a class="btn btn--sm btn--pri" href="#downloads">Baixar</a>
+  </div>
+</div></header>
+
+<noscript>
+  <p class="strip">Ative o JavaScript para ver a versão mais recente. Você ainda pode baixar direto em <a href="https://github.com/zleib-software/ZReader/releases/latest">GitHub Releases</a>.</p>
+</noscript>
+
+<main id="main">
+<!-- Hero -->
+<section class="hero" aria-labelledby="h1"><div class="wrap">
+  <p class="pill" data-in="1"><span class="dot dot--pulse"></span><span data-bind="status">Open source · Licença MIT</span></p>
+  <h1 id="h1" data-in="2">Seu leitor de mangás. <span class="acc">Grátis</span> e sem rastreadores.</h1>
+  <p class="lead" data-in="3">O ZReader é um leitor de mangás moderno e de código aberto para Windows e Android. Conectado ao MangaDex, com biblioteca, downloads offline e todos os seus dados guardados só no seu dispositivo.</p>
+  <div class="cta" data-in="4">
+    <a class="btn" data-dl="windows" href="https://github.com/zleib-software/ZReader/releases/latest">
+      <svg class="i" aria-hidden="true"><use href="#i-dl"/></svg>
+      <span class="btn__t">Baixar para Windows</span>
+    </a>
+    <a class="btn" data-dl="android" href="https://github.com/zleib-software/ZReader/releases/latest">
+      <svg class="i" aria-hidden="true"><use href="#i-dl"/></svg>
+      <span class="btn__t">Baixar para Android</span>
+    </a>
+    <a class="link" href="https://github.com/zleib-software/ZReader" target="_blank" rel="noopener noreferrer">
+      <svg class="i" aria-hidden="true"><use href="#i-gh"/></svg>Ver código no GitHub<span class="sr"> (abre em nova aba)</span>
+    </a>
+  </div>
+  <p class="meta" data-in="5">
+    <span data-meta><span class="sk" data-bind="version"></span> · <time class="sk" data-bind="date"></time> · <span class="sk" data-size="auto"></span><br></span>
+    Windows 64 bits e Android
+  </p>
+
+  <!-- Mockup Decorativo do Aplicativo (§5.3) -->
+  <div class="mock-stage">
+    <div class="mock-float">
+      <div class="mock-tilt">
+        <div class="mock" role="img" aria-label="Pré-visualização da interface do ZReader">
+          <div class="mock__window" aria-hidden="true" inert>
+            <!-- Barra de Título -->
+            <div class="mock-titlebar">
+              <div class="mock-tb-logo">
+                <span class="logo__mark"><svg class="i" aria-hidden="true"><use href="#i-book"/></svg></span>
+                <span><b>Z</b>READER</span>
+              </div>
+              <div class="mock-tb-search">
+                <svg class="i" aria-hidden="true"><use href="#i-search"/></svg>
+                <span>Buscar título, autor ou colar link...</span>
+              </div>
+              <div class="mock-tb-controls">
+                <span>—</span>
+                <span>▢</span>
+                <span>✕</span>
+              </div>
+            </div>
+
+            <!-- Corpo da Janela -->
+            <div class="mock-body">
+              <!-- Sidebar -->
+              <aside class="mock-sidebar">
+                <div class="mock-user-card">
+                  <div class="mock-avatar">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <rect x="5" y="8" width="14" height="12" rx="3"/>
+                      <circle cx="9" cy="13" r="1.5" fill="currentColor"/>
+                      <circle cx="15" cy="13" r="1.5" fill="currentColor"/>
+                      <path d="M12 4v4M9 4h6"/>
+                    </svg>
+                  </div>
+                  <div class="mock-user-info">
+                    <span class="mock-user-name">Zleib</span>
+                    <span class="mock-user-sub"><span class="dot"></span>MangaDex Conectado</span>
+                  </div>
+                </div>
+
+                <nav class="mock-nav">
+                  <div class="mock-nav-item is-active"><svg class="i" aria-hidden="true"><use href="#i-compass"/></svg>Explorar</div>
+                  <div class="mock-nav-item"><svg class="i" aria-hidden="true"><use href="#i-book"/></svg>Biblioteca</div>
+                  <div class="mock-nav-item"><svg class="i" aria-hidden="true"><use href="#i-dl"/></svg>Downloads</div>
+                  <div class="mock-divider"></div>
+                  <div class="mock-nav-item"><svg class="i" aria-hidden="true"><use href="#i-info"/></svg>Notificações</div>
+                  <div class="mock-nav-item"><svg class="i" aria-hidden="true"><use href="#i-sliders"/></svg>Configurações</div>
+                </nav>
+
+                <div class="mock-sidebar-footer">
+                  <div class="mock-offline-pill">
+                    <span style="display:flex;align-items:center;gap:6px;"><svg class="i" aria-hidden="true"><use href="#i-wifi"/></svg>Modo Offline</span>
+                    <span class="mock-online-tag"><span class="dot dot--pulse"></span>ONLINE</span>
+                  </div>
+                  <div class="mock-badge-free">
+                    <svg class="i" aria-hidden="true"><use href="#i-shield"/></svg>
+                    <span>100% Gratuito &amp; Sem Rastreadores</span>
+                  </div>
+                </div>
+              </aside>
+
+              <!-- Área Principal -->
+              <div class="mock-main">
+                <div class="mock-tabs-row">
+                  <div class="mock-tabs-left">
+                    <div class="mock-tab is-active"><svg class="i" aria-hidden="true"><use href="#i-flame"/></svg>Mais Populares</div>
+                    <div class="mock-tab"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>Últimos Lançamentos</div>
+                  </div>
+                  <div class="mock-btn-filter">
+                    <svg class="i" aria-hidden="true"><use href="#i-sliders"/></svg>
+                    <span>Filtros</span>
+                    <svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+                  </div>
+                </div>
+
+                <div class="mock-genres-row">
+                  <span class="mock-genres-label">GÊNEROS:</span>
+                  <span>Ação · Aventura · Comédia · Romance · Fantasia · Drama · Sci-Fi · Mistério · + todos</span>
+                </div>
+
+                <!-- Grade de 5 colunas com 10 capas puramente CSS -->
+                <div class="mock-manga-grid">
+                  <div class="mock-card">
+                    <div class="mock-card-cover cover--1">
+                      <span class="mock-cover-badge"><span class="dot"></span>Completo</span>
+                      <span class="mock-cover-badge mock-cover-badge--warn">16+</span>
+                    </div>
+                    <span class="mock-card-title">Crônicas do Vale</span>
+                    <span class="mock-card-genre">Fantasia, Aventura</span>
+                  </div>
+
+                  <div class="mock-card">
+                    <div class="mock-card-cover cover--2">
+                      <span class="mock-cover-badge"><span class="dot"></span>Em curso</span>
+                    </div>
+                    <span class="mock-card-title">Sombra de Aço</span>
+                    <span class="mock-card-genre">Ação, Sci-Fi</span>
+                  </div>
+
+                  <div class="mock-card">
+                    <div class="mock-card-cover cover--3">
+                      <span class="mock-cover-badge"><span class="dot"></span>Completo</span>
+                    </div>
+                    <span class="mock-card-title">Jardim das Marés</span>
+                    <span class="mock-card-genre">Drama, Romance</span>
+                  </div>
+
+                  <div class="mock-card">
+                    <div class="mock-card-cover cover--4">
+                      <span class="mock-cover-badge"><span class="dot" style="background:#888;"></span>hiatus</span>
+                      <span class="mock-cover-badge mock-cover-badge--warn">16+</span>
+                    </div>
+                    <span class="mock-card-title">Noite Neon</span>
+                    <span class="mock-card-genre">Cyberpunk, Mistério</span>
+                  </div>
+
+                  <div class="mock-card">
+                    <div class="mock-card-cover cover--5">
+                      <span class="mock-cover-badge"><span class="dot"></span>Em curso</span>
+                    </div>
+                    <span class="mock-card-title">Mestre dos Ventos</span>
+                    <span class="mock-card-genre">Aventura, Magia</span>
+                  </div>
+
+                  <div class="mock-card">
+                    <div class="mock-card-cover cover--6">
+                      <span class="mock-cover-badge"><span class="dot"></span>Em curso</span>
+                    </div>
+                    <span class="mock-card-title">Coração de Papel</span>
+                    <span class="mock-card-genre">Slice of Life</span>
+                  </div>
+
+                  <div class="mock-card">
+                    <div class="mock-card-cover cover--7">
+                      <span class="mock-cover-badge"><span class="dot"></span>Completo</span>
+                      <span class="mock-cover-badge mock-cover-badge--warn">16+</span>
+                    </div>
+                    <span class="mock-card-title">Estação Fantasma</span>
+                    <span class="mock-card-genre">Mistério, Sobrenatural</span>
+                  </div>
+
+                  <div class="mock-card">
+                    <div class="mock-card-cover cover--8">
+                      <span class="mock-cover-badge"><span class="dot"></span>Em curso</span>
+                    </div>
+                    <span class="mock-card-title">Reino de Cinzas</span>
+                    <span class="mock-card-genre">Dark Fantasy</span>
+                  </div>
+
+                  <div class="mock-card">
+                    <div class="mock-card-cover cover--9">
+                      <span class="mock-cover-badge"><span class="dot"></span>Completo</span>
+                    </div>
+                    <span class="mock-card-title">Café Lunar</span>
+                    <span class="mock-card-genre">Comédia, Romance</span>
+                  </div>
+
+                  <div class="mock-card">
+                    <div class="mock-card-cover cover--10">
+                      <span class="mock-cover-badge"><span class="dot"></span>Em curso</span>
+                      <span class="mock-cover-badge mock-cover-badge--warn">16+</span>
+                    </div>
+                    <span class="mock-card-title">Pacto Escarlate</span>
+                    <span class="mock-card-genre">Ação, Sobrenatural</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- Downloads -->
+<section id="downloads" aria-labelledby="h-dl"><div class="wrap">
+  <div class="head reveal">
+    <p class="eyebrow">Downloads</p>
+    <h2 id="h-dl" tabindex="-1">Baixe o ZReader</h2>
+    <p>Direto do GitHub Releases. Sem cadastro, sem anúncios, sem rastreadores.</p>
+  </div>
+
+  <p class="strip" id="unsupported" hidden>
+    <span></span>
+    <a href="https://github.com/zleib-software/ZReader" target="_blank" rel="noopener noreferrer">Acompanhar no GitHub</a>
+  </p>
+
+  <div role="status">
+    <p class="note" id="note" hidden>
+      <svg class="i" aria-hidden="true"><use href="#i-info"/></svg>
+      <span><span data-bind="note"></span> <a data-when="empty" hidden href="https://github.com/zleib-software/ZReader" target="_blank" rel="noopener noreferrer">Acompanhar no GitHub</a></span>
+    </p>
+  </div>
+
+  <div class="cards">
+    <!-- Windows Card -->
+    <article class="card card--windows reveal" data-card="windows" aria-busy="true">
+      <span class="tag"><span class="dot"></span>Recomendado para o seu dispositivo</span>
+      <span class="tile"><svg class="i i--lg" aria-hidden="true"><use href="#i-win"/></svg></span>
+      <h3>Windows</h3>
+      <p class="muted">Instalador (.exe) · 64 bits</p>
+      <a class="btn" data-dl="windows" href="https://github.com/zleib-software/ZReader/releases/latest">
+        <svg class="i" aria-hidden="true"><use href="#i-dl"/></svg>
+        <span class="btn__t">Baixar para Windows</span>
+      </a>
+      <div class="sub-links">
+        <a id="link-win-portable" href="#" hidden>Versão portátil (.exe)</a>
+        <a id="link-win-zip" href="#" hidden>Pacote .zip</a>
+      </div>
+      <p class="meta"><span data-meta><span class="sk" data-bind="version"></span> · <time class="sk" data-bind="date"></time> · <span class="sk" data-size="windows"></span></span></p>
+      <p class="note-s">Se o SmartScreen avisar, <a href="#como-instalar">veja como instalar</a>.</p>
+
+      <!-- Verificação de integridade Windows -->
+      <details id="integrity-windows" class="details-box" hidden>
+        <summary>Verificar integridade (SHA-256)</summary>
+        <div class="details-content">
+          <div class="hash-line">
+            <code id="hash-win"></code>
+            <button type="button" class="btn-copy" data-copy="#hash-win">Copiar</button>
+          </div>
+          <p class="cmd-check"></p>
+        </div>
+      </details>
+    </article>
+
+    <!-- Android Card -->
+    <article class="card card--android reveal" data-card="android" aria-busy="true">
+      <span class="tag"><span class="dot"></span>Recomendado para o seu dispositivo</span>
+      <span class="tile"><svg class="i i--lg" aria-hidden="true"><use href="#i-and"/></svg></span>
+      <h3>Android</h3>
+      <p class="muted">Pacote APK (.apk)</p>
+      <a class="btn" data-dl="android" href="https://github.com/zleib-software/ZReader/releases/latest">
+        <svg class="i" aria-hidden="true"><use href="#i-dl"/></svg>
+        <span class="btn__t">Baixar para Android</span>
+      </a>
+      <p class="meta"><span data-meta><span class="sk" data-bind="version"></span> · <time class="sk" data-bind="date"></time> · <span class="sk" data-size="android"></span></span></p>
+      <p class="note-s">Instalação fora da Play Store: <a href="#como-instalar">veja o passo a passo</a>.</p>
+
+      <!-- Verificação de integridade Android -->
+      <details id="integrity-android" class="details-box" hidden>
+        <summary>Verificar integridade (SHA-256)</summary>
+        <div class="details-content">
+          <div class="hash-line">
+            <code id="hash-and"></code>
+            <button type="button" class="btn-copy" data-copy="#hash-and">Copiar</button>
+          </div>
+          <p class="cmd-check"></p>
+        </div>
+      </details>
+    </article>
+  </div>
+
+  <!-- Outros Arquivos Desta Versão -->
+  <details id="other-files" class="details-box other-files-box" hidden>
+    <summary>Outros arquivos desta versão</summary>
+    <ul class="other-list" id="other-files-list"></ul>
+  </details>
+
+  <p class="foot">
+    <a data-bind="notes" href="https://github.com/zleib-software/ZReader/releases" target="_blank" rel="noopener noreferrer">
+      Notas da versão <svg class="i" style="display:inline-block;width:14px;height:14px;vertical-align:middle;" aria-hidden="true"><use href="#i-ext"/></svg>
+      <span class="sr">(abre em nova aba)</span>
+    </a><br>
+    Os arquivos são servidos pelo GitHub Releases e podem ser auditados no código-fonte.
+  </p>
+</div></section>
+
+<!-- Como instalar -->
+<section id="como-instalar" aria-labelledby="h-in"><div class="wrap">
+  <div class="head reveal">
+    <p class="eyebrow">Instalação</p>
+    <h2 id="h-in" tabindex="-1">Como instalar</h2>
+    <p>Leva menos de um minuto.</p>
+  </div>
+
+  <!-- Abas WAI-ARIA no mobile (< 768px) -->
+  <div class="tablist-wrap">
+    <div class="tablist" role="tablist" aria-label="Plataforma para instalação">
+      <div class="tab-indicator"></div>
+      <button type="button" class="tab-btn" role="tab" id="tab-windows" aria-controls="panel-windows" aria-selected="true" tabindex="0">
+        <svg class="i" aria-hidden="true"><use href="#i-win"/></svg> Windows
+      </button>
+      <button type="button" class="tab-btn" role="tab" id="tab-android" aria-controls="panel-android" aria-selected="false" tabindex="-1">
+        <svg class="i" aria-hidden="true"><use href="#i-and"/></svg> Android
+      </button>
+    </div>
+  </div>
+
+  <div class="cols">
+    <!-- Coluna Windows -->
+    <div class="reveal" role="tabpanel" id="panel-windows" aria-labelledby="tab-windows">
+      <h3>Windows</h3>
+      <ol class="steps">
+        <li><b>Baixe o instalador.</b> Clique em <kbd>Baixar para Windows</kbd>. Se o navegador avisar que o arquivo não é baixado com frequência, escolha <kbd>Manter</kbd>.</li>
+        <li><b>Abra o instalador.</b> Se aparecer “O Windows protegeu seu computador” (SmartScreen), clique em <kbd>Mais informações</kbd> e depois em <kbd>Executar assim mesmo</kbd>. O aviso aparece porque o instalador não tem assinatura digital paga; o código é aberto e pode ser auditado.</li>
+        <li><b>Escolha a pasta e conclua.</b> O assistente deixa você mudar o local de instalação e cria atalhos na Área de Trabalho e no Menu Iniciar.</li>
+        <li><b>Pronto.</b> Abra o ZReader. Para atualizar, instale a versão nova por cima: seus dados são preservados.</li>
+      </ol>
+    </div>
+
+    <!-- Coluna Android -->
+    <div class="reveal" role="tabpanel" id="panel-android" aria-labelledby="tab-android">
+      <h3>Android</h3>
+      <ol class="steps">
+        <li><b>Baixe o APK.</b> Toque em <kbd>Baixar para Android</kbd> no navegador do celular.</li>
+        <li><b>Abra o arquivo.</b> Toque na notificação de download ou abra o arquivo no app Arquivos.</li>
+        <li><b>Permita a instalação.</b> Se o Android pedir, toque em <kbd>Configurações</kbd> e ative <kbd>Permitir desta fonte</kbd> para o navegador ou gerenciador de arquivos que você usou. Volte e toque em <kbd>Instalar</kbd>.</li>
+        <li><b>Confirme no Play Protect, se pedir.</b> Se aparecer um aviso, toque em <kbd>Mais detalhes</kbd> e depois em <kbd>Instalar mesmo assim</kbd>. Depois, você pode desativar a permissão de fontes desconhecidas.</li>
+      </ol>
+    </div>
+  </div>
+</div></section>
+
+<!-- Recursos -->
+<section id="recursos" aria-labelledby="h-rec"><div class="wrap">
+  <div class="head reveal">
+    <p class="eyebrow">Recursos</p>
+    <h2 id="h-rec" tabindex="-1">Feito para quem lê muito</h2>
+    <p>Moderno, rápido e respeitoso com os seus dados.</p>
+  </div>
+  <div class="grid">
+    <article class="feat reveal">
+      <span class="tile tile--s"><svg class="i" aria-hidden="true"><use href="#i-book"/></svg></span>
+      <h3>Gratuito e open-source</h3>
+      <p>Sem anúncios nem assinatura. Código aberto sob licença MIT.</p>
+    </article>
+    <article class="feat reveal">
+      <span class="tile tile--s"><svg class="i" aria-hidden="true"><use href="#i-shield"/></svg></span>
+      <h3>Sem rastreadores</h3>
+      <p>Nenhuma telemetria, analytics ou relatório de falhas. O que você lê fica com você.</p>
+    </article>
+    <article class="feat reveal">
+      <span class="tile tile--s"><svg class="i" aria-hidden="true"><use href="#i-shield"/></svg></span>
+      <h3>Local-first e seguro</h3>
+      <p>Dados no seu dispositivo, credenciais no cofre nativo do sistema e Senha Mestra opcional.</p>
+    </article>
+    <article class="feat reveal">
+      <span class="tile tile--s"><svg class="i" aria-hidden="true"><use href="#i-dl"/></svg></span>
+      <h3>Leitura offline</h3>
+      <p>Baixe capítulos inteiros e leia sem internet, com progresso página a página.</p>
+    </article>
+    <article class="feat reveal">
+      <span class="tile tile--s"><svg class="i" aria-hidden="true"><use href="#i-book"/></svg></span>
+      <h3>Leitor completo</h3>
+      <p>Página única, página dupla e rolagem vertical (webtoon), em RTL ou LTR.</p>
+    </article>
+    <article class="feat reveal">
+      <span class="tile tile--s"><svg class="i" aria-hidden="true"><use href="#i-gh"/></svg></span>
+      <h3>Integrado ao MangaDex</h3>
+      <p>Biblioteca, status e progresso sincronizados, com prioridade para capítulos em português.</p>
+    </article>
+  </div>
+</div></section>
+
+<!-- FAQ -->
+<section id="faq" aria-labelledby="h-faq"><div class="wrap wrap--s">
+  <div class="head reveal">
+    <p class="eyebrow">FAQ</p>
+    <h2 id="h-faq" tabindex="-1">Perguntas frequentes</h2>
+  </div>
+  <div class="faq reveal">
+    <details name="faq">
+      <summary>O ZReader é seguro? O Windows/Android mostrou um aviso.</summary>
+      <p>Os avisos aparecem porque o app é independente, não tem assinatura digital paga e não está em lojas oficiais. O código é aberto (MIT) e você pode conferir o SHA-256 dos arquivos na seção Downloads. Baixe sempre por esta página ou direto do GitHub Releases.</p>
+    </details>
+    <details name="faq">
+      <summary>Funciona no iPhone, no Mac ou no Linux?</summary>
+      <p>Ainda não. Hoje existem versões para Windows (64 bits) e Android. Acompanhe o repositório no GitHub para novidades.</p>
+    </details>
+    <details name="faq">
+      <summary>Como funciona a conexão com o MangaDex?</summary>
+      <p>O ZReader usa a API oficial do MangaDex. Para sincronizar biblioteca e progresso, você conecta sua conta com um Personal Client criado por você no MangaDex; as credenciais ficam criptografadas no seu dispositivo.</p>
+    </details>
+    <details name="faq">
+      <summary>Como atualizo para uma versão nova?</summary>
+      <p>Baixe a versão mais recente nesta página e instale por cima. No Windows, seus dados são preservados.</p>
+    </details>
+    <details name="faq">
+      <summary>O ZReader é afiliado ao MangaDex? De onde vêm os mangás?</summary>
+      <p>Não há afiliação oficial. Todo o conteúdo exibido no app é hospedado pelo MangaDex e seus grupos; o ZReader não hospeda nem altera conteúdo protegido por direitos autorais. Sempre que possível, apoie os autores e as editoras oficiais.</p>
+    </details>
+  </div>
+</div></section>
+</main>
+
+<!-- Rodapé -->
+<footer class="ftr"><div class="wrap">
+  <p class="logo">
+    <span class="logo__mark"><svg class="i" aria-hidden="true"><use href="#i-book"/></svg></span>
+    <span><b>Z</b>READER</span>
+  </p>
+  <p class="muted shield">
+    <svg class="i" aria-hidden="true"><use href="#i-shield"/></svg>
+    100% Gratuito &amp; Sem Rastreadores
+  </p>
+  <nav class="flinks" aria-label="Rodapé">
+    <a href="https://github.com/zleib-software/ZReader" target="_blank" rel="noopener noreferrer">Código-fonte<span class="sr"> (abre em nova aba)</span></a>
+    <a href="https://github.com/zleib-software/ZReader/releases" target="_blank" rel="noopener noreferrer">Releases<span class="sr"> (abre em nova aba)</span></a>
+    <a href="https://github.com/zleib-software/ZReader/issues" target="_blank" rel="noopener noreferrer">Reportar um problema<span class="sr"> (abre em nova aba)</span></a>
+    <a href="https://github.com/zleib-software/ZReader/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">Licença MIT<span class="sr"> (abre em nova aba)</span></a>
+    <a href="#downloads">Downloads</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+  <p class="legal">Projeto independente, sem afiliação oficial com o MangaDex. Todo o conteúdo exibido no app é hospedado pelo MangaDex e seus grupos; o ZReader não hospeda conteúdo protegido por direitos autorais e incentiva apoiar autores e editoras oficiais.</p>
+  <p class="legal">Esta página não usa cookies nem analytics. Ao abrir, ela consulta a API pública do GitHub para mostrar a versão mais recente.</p>
+  <p class="legal">Feito por ZLeib Software · © <span id="year">2026</span></p>
+</div></footer>
+
+<!-- Toast de status acessível -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- Sprite SVG Inline único (estilo Lucide: traço 1.5, cantos e pontas arredondadas) -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-dl" viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 20h16"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 6v14M12 6C10 4.5 7 4 3 4v14c4 0 7 .5 9 2 2-1.5 5-2 9-2V4c-4 0-7 .5-9 2z"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.5 3 8 7 10 4-2 7-5.5 7-10V6z"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></symbol>
+  <symbol id="i-win" viewBox="0 0 24 24"><path d="m3 5 8-1v7H3zM13 4l8-1v8h-8zM3 13h8v7l-8-1zM13 13h8v8l-8-1z"/></symbol>
+  <symbol id="i-and" viewBox="0 0 24 24"><path d="M5 17v-6a7 7 0 0 1 14 0v6zM9 11h.01M15 11h.01M8 3.5l1.5 2M16 3.5l-1.5 2"/></symbol>
+  <symbol id="i-gh" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.1-1.25-.3-2.5-1-3.5.3-1.15.3-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.4.5-.7 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4M9 18c-4.5 2-5-2-7-2"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></symbol>
+  <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 6 12 12 16 14"/></symbol>
+  <symbol id="i-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
+  <symbol id="i-sliders" viewBox="0 0 24 24"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></symbol>
+  <symbol id="i-chevron-down" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></symbol>
+  <symbol id="i-wifi" viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></symbol>
+</svg>
+</body>
+</html>
