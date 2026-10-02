@@ -187,7 +187,12 @@
   section { padding-block: var(--section-y); }
   #top { position: absolute; top: 0; left: 0; width: 1px; height: 8px; pointer-events: none; }
 
-  .head { max-width: 44rem; margin-bottom: var(--gap-l); }
+  .head {
+    max-width: 44rem;
+    margin-inline: auto;
+    text-align: center;
+    margin-bottom: var(--gap-l);
+  }
   .head p:last-child { color: var(--text-2); margin-top: 0.5rem; }
   .eyebrow {
     margin-bottom: 0.5rem;
@@ -300,16 +305,32 @@
   .cards {
     display: grid;
     gap: var(--gap-m);
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+    grid-template-columns: 1fr;
+    max-width: 52rem;
+    margin-inline: auto;
   }
+  @media (min-width: 640px) {
+    .cards { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* Grid de 6 recursos: 3 colunas x 2 linhas no desktop, 2 colunas no tablet, 1 no mobile. Sem buracos! */
   .grid {
     display: grid;
     gap: var(--gap-m);
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+    grid-template-columns: 1fr;
   }
+  @media (min-width: 600px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 992px) {
+    .grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
   .cols {
     display: grid;
     gap: var(--gap-l);
+    max-width: 54rem;
+    margin-inline: auto;
   }
   @media (min-width: 768px) {
     .cols { grid-template-columns: 1fr 1fr; }
@@ -325,8 +346,14 @@
     border-top: 1px solid var(--line);
     background: var(--bg-1);
     padding: var(--gap-l) 0 calc(var(--gap-l) + env(safe-area-inset-bottom, 0px));
+    text-align: center;
   }
-  .ftr .wrap { display: grid; gap: 1rem; }
+  .ftr .wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
 }
 
 @layer components {
@@ -486,6 +513,8 @@
     display: flex;
     align-items: flex-start;
     gap: 0.6rem;
+    max-width: 52rem;
+    margin-inline: auto;
     margin-bottom: var(--gap-m);
     padding: 0.8rem 1rem;
     border: 1px solid var(--line);
@@ -564,7 +593,12 @@
   }
   .sub-links a { color: var(--text-2); text-decoration: underline; }
 
-  .foot { margin-top: var(--gap-m); color: var(--text-2); font-size: var(--fs-sm); }
+  .foot {
+    margin-top: var(--gap-m);
+    color: var(--text-2);
+    font-size: var(--fs-sm);
+    text-align: center;
+  }
 
   /* Verificação de Integridade e Outros Arquivos */
   .details-box {
@@ -622,6 +656,8 @@
 
   .other-files-box {
     margin-top: var(--gap-m);
+    max-width: 52rem;
+    margin-inline: auto;
   }
   .other-list {
     display: grid;
@@ -642,6 +678,8 @@
 
   /* Seção de Instalação: Abas WAI-ARIA */
   .tablist-wrap {
+    max-width: 24rem;
+    margin-inline: auto;
     margin-bottom: var(--gap-m);
   }
   @media (min-width: 768px) {
@@ -797,11 +835,29 @@
   }
 
   /* Rodapé detalhes */
-  .shield { display: flex; align-items: center; gap: 0.5rem; font-size: var(--fs-sm); }
-  .flinks { display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; font-size: var(--fs-sm); }
+  .shield {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: var(--fs-sm);
+  }
+  .flinks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.25rem 1.5rem;
+    font-size: var(--fs-sm);
+  }
   .flinks a { display: inline-flex; align-items: center; min-height: 44px; color: var(--text-2); }
   .flinks a:hover { color: var(--text); }
-  .legal { max-width: 70ch; color: var(--text-2); font-size: var(--fs-xs); }
+  .legal {
+    max-width: 70ch;
+    margin-inline: auto;
+    color: var(--text-2);
+    font-size: var(--fs-xs);
+    text-align: center;
+  }
 
   /* Toast Notification */
   .toast {
@@ -954,7 +1010,12 @@
   .screens-grid {
     display: grid;
     gap: var(--gap-l);
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 768px) {
+    .screens-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
   .screen-card {
     display: flex;
