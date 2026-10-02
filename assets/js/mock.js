@@ -1,40 +1,81 @@
-// Mockup interativo e fluido da interface do ZReader.
-// Gerencia a escala vetorial precisa via ResizeObserver, flutuação e tilt 3D com LERP.
+// Mockup interativo e fluido da interface do ZReader com prints reais do app.
+// Gerencia a troca de abas (WAI-ARIA Tabs), sincronização com cards de interface,
+// flutuação suave e tilt 3D com LERP a 60fps.
 
 export function initMock() {
   const stage = document.querySelector('.mock-stage');
   const mockContainer = document.querySelector('.mock');
   const tiltEl = document.querySelector('.mock-tilt');
   const floatEl = document.querySelector('.mock-float');
+  const tabBtns = document.querySelectorAll('.mock-tab-btn');
+  const screens = document.querySelectorAll('.mock__screen');
 
   if (!mockContainer || !tiltEl || !stage) return;
 
-  // 1. Escala Fluida via ResizeObserver
-  const updateScale = () => {
-    const isCompact = window.innerWidth < 720;
-    const targetW = isCompact ? 760 : 1280;
-    const targetH = isCompact ? 720 : 800;
+  // Marca como pronto para evitar FOUC
+  mockContainer.classList.add('is-ready');
 
-    const containerW = mockContainer.clientWidth;
-    if (containerW <= 0) return;
+  // 1. Alternância de Telas (Tabs WAI-ARIA)
+  const switchScreen = (targetId) => {
+    tabBtns.forEach(btn => {
+      const match = btn.getAttribute('data-mock-target') === targetId;
+      btn.classList.toggle('is-active', match);
+      btn.setAttribute('aria-selected', match ? 'true' : 'false');
+      btn.tabIndex = match ? 0 : -1;
+    });
 
-    const scale = containerW / targetW;
-
-    mockContainer.style.setProperty('--mock-w', targetW);
-    mockContainer.style.setProperty('--mock-h', targetH);
-    mockContainer.style.setProperty('--mock-scale', scale.toFixed(5));
-
-    if (!mockContainer.classList.contains('is-ready')) {
-      mockContainer.classList.add('is-ready');
-    }
+    screens.forEach(screen => {
+      const match = screen.getAttribute('data-screen') === targetId;
+      screen.classList.toggle('is-active', match);
+    });
   };
 
-  const resizeObserver = new ResizeObserver(() => {
-    updateScale();
+  // Eventos de clique nas abas
+  tabBtns.forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+      const target = btn.getAttribute('data-mock-target');
+      if (target) switchScreen(target);
+    });
+
+    // Navegação por teclado segundo WAI-ARIA Tabs
+    btn.addEventListener('keydown', (e) => {
+      const btns = Array.from(tabBtns);
+      let nextIndex = null;
+
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        nextIndex = (index + 1) % btns.length;
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        nextIndex = (index - 1 + btns.length) % btns.length;
+      } else if (e.key === 'Home') {
+        nextIndex = 0;
+      } else if (e.key === 'End') {
+        nextIndex = btns.length - 1;
+      }
+
+      if (nextIndex !== null) {
+        e.preventDefault();
+        btns[nextIndex].focus();
+        const target = btns[nextIndex].getAttribute('data-mock-target');
+        if (target) switchScreen(target);
+      }
+    });
   });
-  resizeObserver.observe(mockContainer);
-  window.addEventListener('resize', updateScale, { passive: true });
-  updateScale();
+
+  // Gatilhos externos (ex: botões "Ver no mockup" na seção #interface)
+  document.querySelectorAll('[data-switch-mock]').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const target = trigger.getAttribute('data-switch-mock');
+      if (target) {
+        switchScreen(target);
+        stage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        const targetTab = document.querySelector(`.mock-tab-btn[data-mock-target="${target}"]`);
+        if (targetTab) {
+          targetTab.focus({ preventScroll: true });
+        }
+      }
+    });
+  });
 
   // 2. Pausa da flutuação quando fora do viewport ou aba em segundo plano
   if (floatEl) {

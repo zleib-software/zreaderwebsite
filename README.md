@@ -78,8 +78,8 @@ Você pode testar todos os estados da interface via query strings na URL sem cha
 
 Antes de lançar publicamente em seu domínio próprio:
 
-1. **Substituir o domínio placeholder**:
-   - Troque `SEU-DOMINIO.vercel.app` pelo seu domínio real em:
+1. **Domínio oficial**:
+   - Configurado para `https://zleibreader.vercel.app` em:
      - [index.html](file:///c:/Users/Gabri/Downloads/files/index.html) (`canonical`, `og:url`, `og:image`, `twitter:image`)
      - [robots.txt](file:///c:/Users/Gabri/Downloads/files/robots.txt) (`Sitemap: ...`)
      - [sitemap.xml](file:///c:/Users/Gabri/Downloads/files/sitemap.xml) (`<loc>...`)

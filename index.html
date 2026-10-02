@@ -7,7 +7,7 @@
 <meta name="description" content="Baixe o ZReader: leitor de mangás open-source, local-first e sem rastreadores, integrado ao MangaDex. Instalador para Windows e APK para Android.">
 <meta name="theme-color" content="#0d0d0f">
 <meta name="color-scheme" content="dark">
-<link rel="canonical" href="https://SEU-DOMINIO.vercel.app/">
+<link rel="canonical" href="https://zleibreader.vercel.app/">
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
@@ -15,8 +15,8 @@
 <meta property="og:site_name" content="ZReader">
 <meta property="og:title" content="ZReader — Leitor de mangás grátis para Windows e Android">
 <meta property="og:description" content="Baixe o ZReader: leitor de mangás open-source, local-first e sem rastreadores, integrado ao MangaDex. Instalador para Windows e APK para Android.">
-<meta property="og:url" content="https://SEU-DOMINIO.vercel.app/">
-<meta property="og:image" content="https://SEU-DOMINIO.vercel.app/assets/img/og.svg">
+<meta property="og:url" content="https://zleibreader.vercel.app/">
+<meta property="og:image" content="https://zleibreader.vercel.app/assets/img/og.svg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Prévia visual do ZReader: leitor de mangás grátis para Windows e Android">
@@ -25,7 +25,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ZReader — Leitor de mangás grátis para Windows e Android">
 <meta name="twitter:description" content="Baixe o ZReader: leitor de mangás open-source, local-first e sem rastreadores, integrado ao MangaDex.">
-<meta name="twitter:image" content="https://SEU-DOMINIO.vercel.app/assets/img/og.svg">
+<meta name="twitter:image" content="https://zleibreader.vercel.app/assets/img/og.svg">
 
 <!-- Favicon -->
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
@@ -82,6 +82,7 @@
   </a>
   <nav class="nav" aria-label="Principal">
     <a href="#downloads">Downloads</a>
+    <a href="#interface">Interface</a>
     <a href="#como-instalar">Como instalar</a>
     <a href="#recursos">Recursos</a>
     <a href="#faq">FAQ</a>
@@ -122,176 +123,32 @@
     Windows 64 bits e Android
   </p>
 
-  <!-- Mockup Decorativo do Aplicativo (§5.3) -->
+  <!-- Abas de Telas do Aplicativo -->
+  <div class="mock-nav-tabs" role="tablist" aria-label="Alternar telas do aplicativo">
+    <button type="button" class="mock-tab-btn is-active" id="tab-screen-explorar" data-mock-target="explorar" role="tab" aria-selected="true" aria-controls="panel-screen-explorar" tabindex="0">
+      <svg class="i" aria-hidden="true"><use href="#i-compass"/></svg> <span>Explorar</span>
+    </button>
+    <button type="button" class="mock-tab-btn" id="tab-screen-biblioteca" data-mock-target="biblioteca" role="tab" aria-selected="false" aria-controls="panel-screen-biblioteca" tabindex="-1">
+      <svg class="i" aria-hidden="true"><use href="#i-book"/></svg> <span>Minha Biblioteca</span>
+    </button>
+    <button type="button" class="mock-tab-btn" id="tab-screen-configuracoes" data-mock-target="configuracoes" role="tab" aria-selected="false" aria-controls="panel-screen-configuracoes" tabindex="-1">
+      <svg class="i" aria-hidden="true"><use href="#i-sliders"/></svg> <span>Configurações</span>
+    </button>
+  </div>
+
+  <!-- Mockup do Aplicativo com Prints Reais -->
   <div class="mock-stage">
     <div class="mock-float">
       <div class="mock-tilt">
-        <div class="mock" role="img" aria-label="Pré-visualização da interface do ZReader">
-          <div class="mock__window" aria-hidden="true" inert>
-            <!-- Barra de Título -->
-            <div class="mock-titlebar">
-              <div class="mock-tb-logo">
-                <span class="logo__mark"><svg class="i" aria-hidden="true"><use href="#i-book"/></svg></span>
-                <span><b>Z</b>READER</span>
-              </div>
-              <div class="mock-tb-search">
-                <svg class="i" aria-hidden="true"><use href="#i-search"/></svg>
-                <span>Buscar título, autor ou colar link...</span>
-              </div>
-              <div class="mock-tb-controls">
-                <span>—</span>
-                <span>▢</span>
-                <span>✕</span>
-              </div>
-            </div>
-
-            <!-- Corpo da Janela -->
-            <div class="mock-body">
-              <!-- Sidebar -->
-              <aside class="mock-sidebar">
-                <div class="mock-user-card">
-                  <div class="mock-avatar">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5">
-                      <rect x="5" y="8" width="14" height="12" rx="3"/>
-                      <circle cx="9" cy="13" r="1.5" fill="currentColor"/>
-                      <circle cx="15" cy="13" r="1.5" fill="currentColor"/>
-                      <path d="M12 4v4M9 4h6"/>
-                    </svg>
-                  </div>
-                  <div class="mock-user-info">
-                    <span class="mock-user-name">Zleib</span>
-                    <span class="mock-user-sub"><span class="dot"></span>MangaDex Conectado</span>
-                  </div>
-                </div>
-
-                <nav class="mock-nav">
-                  <div class="mock-nav-item is-active"><svg class="i" aria-hidden="true"><use href="#i-compass"/></svg>Explorar</div>
-                  <div class="mock-nav-item"><svg class="i" aria-hidden="true"><use href="#i-book"/></svg>Biblioteca</div>
-                  <div class="mock-nav-item"><svg class="i" aria-hidden="true"><use href="#i-dl"/></svg>Downloads</div>
-                  <div class="mock-divider"></div>
-                  <div class="mock-nav-item"><svg class="i" aria-hidden="true"><use href="#i-info"/></svg>Notificações</div>
-                  <div class="mock-nav-item"><svg class="i" aria-hidden="true"><use href="#i-sliders"/></svg>Configurações</div>
-                </nav>
-
-                <div class="mock-sidebar-footer">
-                  <div class="mock-offline-pill">
-                    <span style="display:flex;align-items:center;gap:6px;"><svg class="i" aria-hidden="true"><use href="#i-wifi"/></svg>Modo Offline</span>
-                    <span class="mock-online-tag"><span class="dot dot--pulse"></span>ONLINE</span>
-                  </div>
-                  <div class="mock-badge-free">
-                    <svg class="i" aria-hidden="true"><use href="#i-shield"/></svg>
-                    <span>100% Gratuito &amp; Sem Rastreadores</span>
-                  </div>
-                </div>
-              </aside>
-
-              <!-- Área Principal -->
-              <div class="mock-main">
-                <div class="mock-tabs-row">
-                  <div class="mock-tabs-left">
-                    <div class="mock-tab is-active"><svg class="i" aria-hidden="true"><use href="#i-flame"/></svg>Mais Populares</div>
-                    <div class="mock-tab"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>Últimos Lançamentos</div>
-                  </div>
-                  <div class="mock-btn-filter">
-                    <svg class="i" aria-hidden="true"><use href="#i-sliders"/></svg>
-                    <span>Filtros</span>
-                    <svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-                  </div>
-                </div>
-
-                <div class="mock-genres-row">
-                  <span class="mock-genres-label">GÊNEROS:</span>
-                  <span>Ação · Aventura · Comédia · Romance · Fantasia · Drama · Sci-Fi · Mistério · + todos</span>
-                </div>
-
-                <!-- Grade de 5 colunas com 10 capas puramente CSS -->
-                <div class="mock-manga-grid">
-                  <div class="mock-card">
-                    <div class="mock-card-cover cover--1">
-                      <span class="mock-cover-badge"><span class="dot"></span>Completo</span>
-                      <span class="mock-cover-badge mock-cover-badge--warn">16+</span>
-                    </div>
-                    <span class="mock-card-title">Crônicas do Vale</span>
-                    <span class="mock-card-genre">Fantasia, Aventura</span>
-                  </div>
-
-                  <div class="mock-card">
-                    <div class="mock-card-cover cover--2">
-                      <span class="mock-cover-badge"><span class="dot"></span>Em curso</span>
-                    </div>
-                    <span class="mock-card-title">Sombra de Aço</span>
-                    <span class="mock-card-genre">Ação, Sci-Fi</span>
-                  </div>
-
-                  <div class="mock-card">
-                    <div class="mock-card-cover cover--3">
-                      <span class="mock-cover-badge"><span class="dot"></span>Completo</span>
-                    </div>
-                    <span class="mock-card-title">Jardim das Marés</span>
-                    <span class="mock-card-genre">Drama, Romance</span>
-                  </div>
-
-                  <div class="mock-card">
-                    <div class="mock-card-cover cover--4">
-                      <span class="mock-cover-badge"><span class="dot" style="background:#888;"></span>hiatus</span>
-                      <span class="mock-cover-badge mock-cover-badge--warn">16+</span>
-                    </div>
-                    <span class="mock-card-title">Noite Neon</span>
-                    <span class="mock-card-genre">Cyberpunk, Mistério</span>
-                  </div>
-
-                  <div class="mock-card">
-                    <div class="mock-card-cover cover--5">
-                      <span class="mock-cover-badge"><span class="dot"></span>Em curso</span>
-                    </div>
-                    <span class="mock-card-title">Mestre dos Ventos</span>
-                    <span class="mock-card-genre">Aventura, Magia</span>
-                  </div>
-
-                  <div class="mock-card">
-                    <div class="mock-card-cover cover--6">
-                      <span class="mock-cover-badge"><span class="dot"></span>Em curso</span>
-                    </div>
-                    <span class="mock-card-title">Coração de Papel</span>
-                    <span class="mock-card-genre">Slice of Life</span>
-                  </div>
-
-                  <div class="mock-card">
-                    <div class="mock-card-cover cover--7">
-                      <span class="mock-cover-badge"><span class="dot"></span>Completo</span>
-                      <span class="mock-cover-badge mock-cover-badge--warn">16+</span>
-                    </div>
-                    <span class="mock-card-title">Estação Fantasma</span>
-                    <span class="mock-card-genre">Mistério, Sobrenatural</span>
-                  </div>
-
-                  <div class="mock-card">
-                    <div class="mock-card-cover cover--8">
-                      <span class="mock-cover-badge"><span class="dot"></span>Em curso</span>
-                    </div>
-                    <span class="mock-card-title">Reino de Cinzas</span>
-                    <span class="mock-card-genre">Dark Fantasy</span>
-                  </div>
-
-                  <div class="mock-card">
-                    <div class="mock-card-cover cover--9">
-                      <span class="mock-cover-badge"><span class="dot"></span>Completo</span>
-                    </div>
-                    <span class="mock-card-title">Café Lunar</span>
-                    <span class="mock-card-genre">Comédia, Romance</span>
-                  </div>
-
-                  <div class="mock-card">
-                    <div class="mock-card-cover cover--10">
-                      <span class="mock-cover-badge"><span class="dot"></span>Em curso</span>
-                      <span class="mock-cover-badge mock-cover-badge--warn">16+</span>
-                    </div>
-                    <span class="mock-card-title">Pacto Escarlate</span>
-                    <span class="mock-card-genre">Ação, Sobrenatural</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <div class="mock is-ready" role="region" aria-label="Pré-visualização da interface do ZReader">
+          <div class="mock__screen is-active" id="panel-screen-explorar" data-screen="explorar" role="tabpanel" aria-labelledby="tab-screen-explorar">
+            <img src="assets/img/app-explorar.png" alt="Interface do ZReader - Tela Explorar" width="1024" height="550" class="mock__img" loading="eager" decoding="async">
+          </div>
+          <div class="mock__screen" id="panel-screen-biblioteca" data-screen="biblioteca" role="tabpanel" aria-labelledby="tab-screen-biblioteca">
+            <img src="assets/img/app-biblioteca.png" alt="Interface do ZReader - Minha Biblioteca" width="1024" height="551" class="mock__img" loading="lazy" decoding="async">
+          </div>
+          <div class="mock__screen" id="panel-screen-configuracoes" data-screen="configuracoes" role="tabpanel" aria-labelledby="tab-screen-configuracoes">
+            <img src="assets/img/app-configuracoes.png" alt="Interface do ZReader - Configurações" width="1024" height="550" class="mock__img" loading="lazy" decoding="async">
           </div>
         </div>
       </div>
@@ -390,6 +247,65 @@
     </a><br>
     Os arquivos são servidos pelo GitHub Releases e podem ser auditados no código-fonte.
   </p>
+</div></section>
+
+<!-- Interface do Aplicativo com Prints Reais -->
+<section id="interface" aria-labelledby="h-ui"><div class="wrap">
+  <div class="head reveal">
+    <p class="eyebrow">Interface</p>
+    <h2 id="h-ui" tabindex="-1">Projetado para leitura imersiva e sem distrações</h2>
+    <p>Visual moderno com tema escuro nativo, alta densidade de informação e customização precisa.</p>
+  </div>
+
+  <div class="screens-grid">
+    <!-- Card 1: Explorar -->
+    <article class="screen-card reveal">
+      <div class="screen-card__media">
+        <img src="assets/img/app-explorar.png" alt="Tela de exploração do ZReader com lançamentos e categorias" width="1024" height="550" loading="lazy" decoding="async">
+        <button type="button" class="screen-card__btn" data-switch-mock="explorar">
+          <svg class="i" aria-hidden="true"><use href="#i-compass"/></svg>
+          <span>Ver no mockup</span>
+        </button>
+      </div>
+      <div class="screen-card__body">
+        <span class="screen-card__badge">Catálogo &amp; Busca</span>
+        <h3>Explorar e filtros avançados</h3>
+        <p>Acesse obras populares, últimos lançamentos e filtre por múltiplos gêneros. Barra unificada para pesquisar por título, autor ou colar links diretos do MangaDex.</p>
+      </div>
+    </article>
+
+    <!-- Card 2: Minha Biblioteca -->
+    <article class="screen-card reveal">
+      <div class="screen-card__media">
+        <img src="assets/img/app-biblioteca.png" alt="Tela da biblioteca de mangás do ZReader com status de leitura" width="1024" height="551" loading="lazy" decoding="async">
+        <button type="button" class="screen-card__btn" data-switch-mock="biblioteca">
+          <svg class="i" aria-hidden="true"><use href="#i-book"/></svg>
+          <span>Ver no mockup</span>
+        </button>
+      </div>
+      <div class="screen-card__body">
+        <span class="screen-card__badge">MangaDex Nativo</span>
+        <h3>Minha biblioteca sincronizada</h3>
+        <p>Acompanhe todos os seus títulos categorizados: Lendo, Planejo Ler, Concluídos, Em Espera e Abandonados, com sincronização em 1 clique da sua conta.</p>
+      </div>
+    </article>
+
+    <!-- Card 3: Configurações & Segurança -->
+    <article class="screen-card reveal">
+      <div class="screen-card__media">
+        <img src="assets/img/app-configuracoes.png" alt="Configurações do ZReader com escala de interface e cofre seguro" width="1024" height="550" loading="lazy" decoding="async">
+        <button type="button" class="screen-card__btn" data-switch-mock="configuracoes">
+          <svg class="i" aria-hidden="true"><use href="#i-sliders"/></svg>
+          <span>Ver no mockup</span>
+        </button>
+      </div>
+      <div class="screen-card__body">
+        <span class="screen-card__badge">Segurança &amp; Ajustes</span>
+        <h3>Escala dinâmica &amp; cofre local</h3>
+        <p>Escala visual de 85% a 145%, filtros de classificação etária (Safe, Sugestivo, +18), pasta offline configurável e cofre seguro com Windows DPAPI e derivação Argon2id.</p>
+      </div>
+    </article>
+  </div>
 </div></section>
 
 <!-- Como instalar -->
@@ -526,6 +442,7 @@
     <a href="https://github.com/zleib-software/ZReader/issues" target="_blank" rel="noopener noreferrer">Reportar um problema<span class="sr"> (abre em nova aba)</span></a>
     <a href="https://github.com/zleib-software/ZReader/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">Licença MIT<span class="sr"> (abre em nova aba)</span></a>
     <a href="#downloads">Downloads</a>
+    <a href="#interface">Interface</a>
     <a href="#faq">FAQ</a>
   </nav>
   <p class="legal">Projeto independente, sem afiliação oficial com o MangaDex. Todo o conteúdo exibido no app é hospedado pelo MangaDex e seus grupos; o ZReader não hospeda conteúdo protegido por direitos autorais e incentiva apoiar autores e editoras oficiais.</p>

@@ -55,7 +55,7 @@ export function initUI(currentPlatform) {
   });
 
   // 4. Reveal ao rolar com escalonamento (--i até 6)
-  document.querySelectorAll('.cards, .grid, .cols').forEach((group) => {
+  document.querySelectorAll('.cards, .grid, .cols, .screens-grid').forEach((group) => {
     [...group.children].forEach((child, idx) => {
       child.style.setProperty('--i', Math.min(idx, 6));
     });
@@ -72,10 +72,10 @@ export function initUI(currentPlatform) {
   document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
 
   // 5. Abas WAI-ARIA em #como-instalar (Mobile < 768px)
-  const tablist = document.querySelector('[role="tablist"]');
-  const tabs = document.querySelectorAll('[role="tab"]');
-  const panels = document.querySelectorAll('[role="tabpanel"]');
-  const tabIndicator = document.querySelector('.tab-indicator');
+  const tablist = document.querySelector('#como-instalar .tablist');
+  const tabs = document.querySelectorAll('#como-instalar .tab-btn');
+  const panels = document.querySelectorAll('#como-instalar [role="tabpanel"]');
+  const tabIndicator = document.querySelector('#como-instalar .tab-indicator');
 
   if (tablist && tabs.length && panels.length) {
     const isMobileQuery = window.matchMedia('(max-width: 767px)');
