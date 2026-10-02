@@ -303,6 +303,9 @@
     text-align: center;
     padding-block: clamp(2.5rem, 1rem + 8vw, 6.5rem) var(--section-y);
     overflow: hidden;
+    --title-y: 200px;
+    --title-h: 120px;
+    --title-bottom: 260px;
   }
   .hero::before {
     content: "";
@@ -315,23 +318,25 @@
     z-index: -1;
     pointer-events: none;
     background:
-      radial-gradient(ellipse 65% 55% at 50% 42%, rgba(198, 224, 58, 0.28) 0%, rgba(198, 224, 58, 0.13) 42%, rgba(198, 224, 58, 0.02) 70%, transparent 85%),
-      radial-gradient(circle 340px at 50% 38%, rgba(198, 224, 58, 0.20), transparent 70%),
+      radial-gradient(ellipse 65% 55% at 50% var(--title-y, 220px), rgba(198, 224, 58, 0.28) 0%, rgba(198, 224, 58, 0.13) 42%, rgba(198, 224, 58, 0.02) 70%, transparent 85%),
+      radial-gradient(circle 340px at 50% var(--title-y, 210px), rgba(198, 224, 58, 0.20), transparent 70%),
       radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1.5px) 0 0 / 16px 16px;
-    -webkit-mask-image: radial-gradient(ellipse 70% 65% at 50% 45%, #000 30%, transparent 82%);
-    mask-image: radial-gradient(ellipse 70% 65% at 50% 45%, #000 30%, transparent 82%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 65% at 50% var(--title-y, 230px), #000 30%, transparent 82%);
+    mask-image: radial-gradient(ellipse 70% 65% at 50% var(--title-y, 230px), #000 30%, transparent 82%);
   }
   @media (max-width: 767px) {
     .hero::before {
       top: 0;
-      height: 240px;
-      width: 100vw;
+      left: 0;
+      transform: none;
+      width: 100%;
+      height: 100%;
       background:
-        radial-gradient(ellipse 80% 55% at 50% 36%, rgba(198, 224, 58, 0.28) 0%, rgba(198, 224, 58, 0.10) 45%, transparent 72%),
-        radial-gradient(circle 160px at 50% 34%, rgba(198, 224, 58, 0.20), transparent 65%),
+        radial-gradient(ellipse min(92vw, 440px) calc(var(--title-h, 120px) * 0.85) at 50% var(--title-y, 200px), rgba(198, 224, 58, 0.32) 0%, rgba(198, 224, 58, 0.15) 45%, rgba(198, 224, 58, 0.02) 75%, transparent 100%),
+        radial-gradient(circle min(200px, 48vw) at 50% var(--title-y, 200px), rgba(198, 224, 58, 0.22) 0%, transparent 68%),
         radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1.5px) 0 0 / 14px 14px;
-      -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 45%, transparent 88%);
-      mask-image: linear-gradient(to bottom, #000 0%, #000 45%, transparent 88%);
+      -webkit-mask-image: radial-gradient(ellipse min(96vw, 460px) calc(var(--title-h, 120px) * 0.95) at 50% var(--title-y, 200px), #000 38%, transparent 92%);
+      mask-image: radial-gradient(ellipse min(96vw, 460px) calc(var(--title-h, 120px) * 0.95) at 50% var(--title-y, 200px), #000 38%, transparent 92%);
     }
   }
   @media (max-height: 500px) {

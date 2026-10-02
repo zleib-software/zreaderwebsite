@@ -306,6 +306,65 @@ export function initUI(currentPlatform) {
       });
     });
   }
+
+  // 9. Rastreador dinâmico do gradiente verde no título do Hero
+  const hero = document.querySelector('.hero');
+  const title = document.querySelector('.hero h1') || document.getElementById('h1');
+  const pill = document.querySelector('.hero .pill');
+
+  if (hero && title) {
+    const updateGlow = () => {
+      window.requestAnimationFrame(() => {
+        const heroRect = hero.getBoundingClientRect();
+        const titleRect = title.getBoundingClientRect();
+
+        if (titleRect.height === 0 || heroRect.height === 0) return;
+
+        // Posições exatas em relação ao container .hero
+        const titleTop = Math.round(titleRect.top - heroRect.top);
+        const titleHeight = Math.round(titleRect.height);
+        const titleWidth = Math.round(titleRect.width);
+        const titleCenterY = Math.round(titleTop + titleHeight / 2);
+        const titleCenterX = Math.round((titleRect.left - heroRect.left) + titleWidth / 2);
+        const titleBottom = Math.round(titleTop + titleHeight);
+
+        hero.style.setProperty('--title-y', `${titleCenterY}px`);
+        hero.style.setProperty('--title-x', `${titleCenterX}px`);
+        hero.style.setProperty('--title-top', `${titleTop}px`);
+        hero.style.setProperty('--title-h', `${titleHeight}px`);
+        hero.style.setProperty('--title-w', `${titleWidth}px`);
+        hero.style.setProperty('--title-bottom', `${titleBottom}px`);
+      });
+    };
+
+    // 1. Executa imediatamente
+    updateGlow();
+
+    // 2. Quando as fontes do Google/self-hosted terminam de carregar
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(updateGlow);
+    }
+
+    // 3. ResizeObserver monitora mudanças de quebra de linha ou renderização no título, hero e pill
+    if (typeof ResizeObserver !== 'undefined') {
+      const ro = new ResizeObserver(() => updateGlow());
+      ro.observe(title);
+      ro.observe(hero);
+      if (pill) ro.observe(pill);
+    }
+
+    // 4. Eventos do navegador e mudanças de orientação
+    window.addEventListener('resize', updateGlow, { passive: true });
+    window.addEventListener('orientationchange', () => {
+      setTimeout(updateGlow, 50);
+      setTimeout(updateGlow, 200);
+    }, { passive: true });
+
+    // 5. Retentativas para iOS Safari durante a acomodação de viewport e barras de sistema
+    setTimeout(updateGlow, 60);
+    setTimeout(updateGlow, 250);
+    setTimeout(updateGlow, 800);
+  }
 }
 
 // 9. Sistema de Toast (role="status", aria-live="polite")
