@@ -321,6 +321,19 @@
     -webkit-mask-image: radial-gradient(ellipse 70% 65% at 50% 45%, #000 30%, transparent 82%);
     mask-image: radial-gradient(ellipse 70% 65% at 50% 45%, #000 30%, transparent 82%);
   }
+  @media (max-width: 767px) {
+    .hero::before {
+      top: 0;
+      height: 240px;
+      width: 100vw;
+      background:
+        radial-gradient(ellipse 80% 55% at 50% 36%, rgba(198, 224, 58, 0.28) 0%, rgba(198, 224, 58, 0.10) 45%, transparent 72%),
+        radial-gradient(circle 160px at 50% 34%, rgba(198, 224, 58, 0.20), transparent 65%),
+        radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1.5px) 0 0 / 14px 14px;
+      -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 45%, transparent 88%);
+      mask-image: linear-gradient(to bottom, #000 0%, #000 45%, transparent 88%);
+    }
+  }
   @media (max-height: 500px) {
     .hero { padding-top: 1rem; }
   }
