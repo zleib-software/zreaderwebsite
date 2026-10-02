@@ -210,7 +210,8 @@
     z-index: var(--z-header);
     height: calc(var(--header-h) + env(safe-area-inset-top, 0px));
     padding-top: env(safe-area-inset-top, 0px);
-    border-bottom: 1px solid transparent;
+    background: var(--bg-0);
+    border-bottom: 1px solid var(--line);
     transition: background-color var(--dur-2), border-color var(--dur-2);
   }
   .hdr .wrap {
@@ -271,13 +272,27 @@
 
   html.stuck .hdr {
     background: var(--bg-1);
-    border-color: var(--line);
+    border-color: var(--line-strong);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   }
   @supports (backdrop-filter: blur(1px)) {
+    .hdr {
+      background: rgba(13, 13, 15, 0.98);
+      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(16px);
+    }
     html.stuck .hdr {
-      background: rgba(13, 13, 15, 0.72);
-      -webkit-backdrop-filter: blur(14px) saturate(140%);
-      backdrop-filter: blur(14px) saturate(140%);
+      background: rgba(17, 17, 20, 0.98);
+    }
+  }
+  @media (max-width: 767px) {
+    .hdr {
+      background: var(--bg-0) !important;
+      border-bottom: 1px solid var(--line);
+    }
+    html.stuck .hdr {
+      background: var(--bg-1) !important;
+      border-color: var(--line-strong);
     }
   }
 
