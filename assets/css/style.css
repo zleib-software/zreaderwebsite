@@ -302,18 +302,24 @@
     isolation: isolate;
     text-align: center;
     padding-block: clamp(2.5rem, 1rem + 8vw, 6.5rem) var(--section-y);
+    overflow: hidden;
   }
   .hero::before {
     content: "";
     position: absolute;
-    inset: calc(var(--header-h) * -1) 0 0;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(100vw, 76rem);
+    height: clamp(440px, 60vh, 640px);
     z-index: -1;
     pointer-events: none;
     background:
-      radial-gradient(55% 45% at 50% 30%, rgba(198, 224, 58, 0.16), transparent 70%),
-      radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1.5px) 0 0 / 14px 14px;
-    -webkit-mask-image: radial-gradient(75% 85% at 50% 35%, #000, transparent);
-    mask-image: radial-gradient(75% 85% at 50% 35%, #000, transparent);
+      radial-gradient(ellipse 65% 55% at 50% 42%, rgba(198, 224, 58, 0.28) 0%, rgba(198, 224, 58, 0.13) 42%, rgba(198, 224, 58, 0.02) 70%, transparent 85%),
+      radial-gradient(circle 340px at 50% 38%, rgba(198, 224, 58, 0.20), transparent 70%),
+      radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1.5px) 0 0 / 16px 16px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 65% at 50% 45%, #000 30%, transparent 82%);
+    mask-image: radial-gradient(ellipse 70% 65% at 50% 45%, #000 30%, transparent 82%);
   }
   @media (max-height: 500px) {
     .hero { padding-top: 1rem; }
