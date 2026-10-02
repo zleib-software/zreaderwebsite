@@ -185,9 +185,130 @@ export function initUI(currentPlatform) {
       /* Fallback gracioso */
     }
   });
+
+  // 8. Acordeão Fluido do FAQ (Abertura e Fechamento com Web Animations API a 60fps)
+  const faqGroup = document.querySelector('.faq');
+  if (faqGroup) {
+    const detailsList = faqGroup.querySelectorAll('details');
+
+    detailsList.forEach((details) => {
+      const summary = details.querySelector('summary');
+      const content = details.querySelector('p');
+      if (!summary || !content) return;
+
+      let animation = null;
+      let isClosing = false;
+      let isOpening = false;
+
+      const closeDetails = () => {
+        isClosing = true;
+        details.classList.add('is-closing');
+        details.classList.remove('is-open');
+
+        const startHeight = `${details.offsetHeight}px`;
+        const endHeight = `${summary.offsetHeight}px`;
+
+        if (animation) animation.cancel();
+
+        animation = details.animate({
+          height: [startHeight, endHeight]
+        }, {
+          duration: 250,
+          easing: 'cubic-bezier(0.22, 1, 0.36, 1)'
+        });
+
+        content.animate({
+          opacity: [1, 0],
+          transform: ['translateY(0)', 'translateY(-6px)']
+        }, {
+          duration: 180,
+          easing: 'ease-out'
+        });
+
+        animation.onfinish = () => {
+          details.open = false;
+          animation = null;
+          isClosing = false;
+          details.classList.remove('is-closing');
+          details.style.height = '';
+        };
+        animation.oncancel = () => {
+          isClosing = false;
+          details.classList.remove('is-closing');
+          details.style.height = '';
+        };
+      };
+
+      const openDetails = () => {
+        // Fecha suavemente outros itens abertos no mesmo grupo FAQ
+        detailsList.forEach((other) => {
+          if (other !== details && other.open && !other.classList.contains('is-closing')) {
+            if (other._closeDetails) other._closeDetails();
+            else other.open = false;
+          }
+        });
+
+        details.style.height = `${details.offsetHeight}px`;
+        details.open = true;
+        details.classList.add('is-open');
+        details.classList.remove('is-closing');
+
+        window.requestAnimationFrame(() => {
+          isOpening = true;
+          const startHeight = `${details.offsetHeight}px`;
+          const endHeight = `${summary.offsetHeight + content.offsetHeight}px`;
+
+          if (animation) animation.cancel();
+
+          animation = details.animate({
+            height: [startHeight, endHeight]
+          }, {
+            duration: 280,
+            easing: 'cubic-bezier(0.22, 1, 0.36, 1)'
+          });
+
+          content.animate({
+            opacity: [0, 1],
+            transform: ['translateY(-6px)', 'translateY(0)']
+          }, {
+            duration: 240,
+            delay: 40,
+            easing: 'ease-out',
+            fill: 'both'
+          });
+
+          animation.onfinish = () => {
+            animation = null;
+            isOpening = false;
+            details.style.height = '';
+          };
+          animation.oncancel = () => {
+            isOpening = false;
+            details.style.height = '';
+          };
+        });
+      };
+
+      details._closeDetails = closeDetails;
+
+      summary.addEventListener('click', (e) => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          return;
+        }
+
+        e.preventDefault();
+
+        if (isClosing || !details.open) {
+          openDetails();
+        } else if (isOpening || details.open) {
+          closeDetails();
+        }
+      });
+    });
+  }
 }
 
-// 8. Sistema de Toast (role="status", aria-live="polite")
+// 9. Sistema de Toast (role="status", aria-live="polite")
 let toastTimer = null;
 
 export function showToast(message, actionHref = null, actionLabel = null) {
